@@ -1,0 +1,35 @@
+User-agent: Yandex 
+Disallow: /js
+Disallow: /register
+Disallow: /login
+Disallow: /cabinet
+Disallow: *?
+Disallow: /category
+Disallow: /wp-content
+Disallow: /password
+Host: https://doldz.ru
+
+User-agent: Googlebot 
+Disallow: /js
+Disallow: /register
+Disallow: /login
+Disallow: /cabinet
+Disallow: *?
+Disallow: /category
+Disallow: /wp-content
+Disallow: /password
+
+User-agent: serpstatbot
+Disallow: /
+
+User-agent: *         
+Disallow: /js
+Disallow: /register
+Disallow: /login
+Disallow: /cabinet
+Disallow: *?
+Disallow: /category
+Disallow: /wp-content
+Disallow: /password
+
+Sitemap:https://doldz.ru/satemap.xml
