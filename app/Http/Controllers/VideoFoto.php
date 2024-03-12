@@ -34,21 +34,29 @@ class VideoFoto extends Controller
 //        ]);
 //        $shell = shell_exec('ffmpeg -framerate 1/5 -i public/img%d.jpg -c:v libx264 -vf fps=25 -pix_fmt yuv420p public/out.mp4');
 //        return $shell;
-        FFMpeg::open("img%d.jpg")->resize(320,240);
 
-        FFMpeg::fromDisk('public')
-            ->open("img%d.jpg")
-            ->getFrameFromSeconds(1)
-            ->export()
-            ->addFilter(function (FrameFilters $filters) {
-                $filters->custom('scale=320:180');
-            })
-            ->toDisk('public')
-            ->save("1/img%d.jpg");
+ //       -----
+//        FFMpeg::open("1/img%d.jpg")->resize(320,240);
+//
+//        FFMpeg::fromDisk('public')
+//            ->open("1/img%d.jpg")
+//            ->getFrameFromSeconds(1)
+//            ->export()
+//            ->addFilter(function (FrameFilters $filters) {
+//                $filters->custom('scale=320:180');
+//            })
+//            ->toDisk('public')
+//            ->save("1/img%d.jpg");
+//------
+        //1/5 скорость
+        //new-флаг по которому берем изображение
+        //user папку удалить. зачистить все с нев флагом.
 
-            shell_exec("ffmpeg -i ../storage/app/public/img%d.jpg -vf scale=320:240 ../storage/app/public/img%dnew.jpg");
-            shell_exec("ffmpeg -framerate 1 -i ../storage/app/public/img%dnew.jpg -i ../storage/app/public/music.mp3 -shortest -r 25 -c:v libx264 -pix_fmt yuv420p ../storage/app/public/outt.mp4");
-//FFMpeg::open("img%d0.jpg")
+            shell_exec("ffmpeg -i ../storage/app/public/1/user/img%d.jpg -vf scale=320:240 ../storage/app/public/1/img%dnew.jpg");
+            shell_exec("ffmpeg -framerate 1/5 -i ../storage/app/public/1/img%dnew.jpg -i ../storage/app/public/1/user/music.mp3 -shortest -r 25 -c:v libx264 -pix_fmt yuv420p ../storage/app/public/1/outt.mp4");
+
+
+            //FFMpeg::open("img%d0.jpg")
 //            ->export()
 //            ->asTimelapseWithFramerate(1/2)
 //            ->inFormat(new X264)
