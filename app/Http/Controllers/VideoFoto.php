@@ -51,6 +51,7 @@ class VideoFoto extends Controller
         //1/5 скорость
         //new-флаг по которому берем изображение
         //user папку удалить. зачистить все с нев флагом.
+        //берем данные с формы посредством вью
 
             shell_exec("ffmpeg -i ../storage/app/public/1/user/img%d.jpg -vf scale=320:240 ../storage/app/public/1/img%dnew.jpg");
             shell_exec("ffmpeg -framerate 1/5 -i ../storage/app/public/1/img%dnew.jpg -i ../storage/app/public/1/user/music.mp3 -shortest -r 25 -c:v libx264 -pix_fmt yuv420p ../storage/app/public/1/outt.mp4");
